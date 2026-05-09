@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Color Finder Plus Settings</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <main class="options-shell">
+      <section class="options-hero">
+        <p class="eyebrow">Color Finder Plus</p>
+        <h1>Side Panel Settings</h1>
+        <p>Tune the panel density, font sizes, and which sections stay visible by default.</p>
+      </section>
+
+      <section class="options-card">
+        <div class="field-grid">
+          <label class="field">
+            <span>Panel font size</span>
+            <input id="panelFontSize" type="range" min="11" max="18" step="1">
+            <strong id="panelFontSizeValue"></strong>
+          </label>
+
+          <label class="field">
+            <span>Heading font size</span>
+            <input id="headingFontSize" type="range" min="14" max="24" step="1">
+            <strong id="headingFontSizeValue"></strong>
+          </label>
+
+          <label class="field">
+            <span>Picker zoom level</span>
+            <input id="zoomLevel" type="range" min="6" max="18" step="1">
+            <strong id="zoomLevelValue"></strong>
+          </label>
+
+          <label class="field">
+            <span>Panel density</span>
+            <select id="density">
+              <option value="compact">Compact</option>
+              <option value="comfortable">Comfortable</option>
+            </select>
+          </label>
+
+          <label class="field checkbox-field">
+            <input id="showHero" type="checkbox">
+            <span>Show intro header in the side panel</span>
+          </label>
+
+          <label class="field checkbox-field">
+            <input id="showRecentPicks" type="checkbox">
+            <span>Show Recent Picks section</span>
+          </label>
+
+          <label class="field">
+            <span>Recent picks shown</span>
+            <input id="maxRecentPicksShown" type="range" min="4" max="24" step="1">
+            <strong id="maxRecentPicksShownValue"></strong>
+          </label>
+
+          <label class="field">
+            <span>Selection colors shown</span>
+            <input id="maxSelectionColorsShown" type="range" min="20" max="200" step="10">
+            <strong id="maxSelectionColorsShownValue"></strong>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="resetBtn" class="secondary" type="button">Reset Defaults</button>
+          <span id="saveStatus" class="save-status" aria-live="polite"></span>
+        </div>
+      </section>
+    </main>
+
+    <script src="options.js"></script>
+  </body>
+</html>

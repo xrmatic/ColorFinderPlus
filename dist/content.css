@@ -1,0 +1,96 @@
+#color-finder-plus-root {
+  all: initial;
+}
+
+.cfp-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  cursor: crosshair;
+  pointer-events: none;
+  font-family: Arial, sans-serif;
+}
+
+.cfp-overlay.is-active {
+  pointer-events: auto;
+}
+
+.cfp-mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.08);
+}
+
+.cfp-selection {
+  position: absolute;
+  border: 2px solid #0f172a;
+  background: rgba(14, 165, 233, 0.18);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.85);
+}
+
+.cfp-hud {
+  position: absolute;
+  width: 184px;
+  padding: 10px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #0f172a;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.24);
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  backdrop-filter: blur(6px);
+}
+
+.cfp-hud canvas {
+  display: block;
+  width: 160px;
+  height: 160px;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  image-rendering: pixelated;
+  background:
+    linear-gradient(45deg, #e2e8f0 25%, transparent 25%),
+    linear-gradient(-45deg, #e2e8f0 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e2e8f0 75%),
+    linear-gradient(-45deg, transparent 75%, #e2e8f0 75%);
+  background-size: 12px 12px;
+  background-position: 0 0, 0 6px, 6px -6px, -6px 0;
+}
+
+.cfp-hud-meta {
+  margin-top: 8px;
+  display: grid;
+  gap: 2px;
+  font-size: 12px;
+}
+
+.cfp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #eff6ff;
+  color: #0f172a;
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.cfp-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.18);
+}
+
+.cfp-instructions {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.9);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font: 600 12px/1 Arial, sans-serif;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.35);
+}

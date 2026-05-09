@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Color Finder Plus</title>
+    <link rel="stylesheet" href="sidepanel.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="heroSection" class="hero" hidden>
+        <p class="eyebrow">Color Finder Plus</p>
+        <h1>Find exact page colors fast.</h1>
+        <p class="hero-copy">Use the live picker for Hex and RGB, or drag a box to extract every visible color from the page and generate palette suggestions.</p>
+      </section>
+
+      <section class="panel-header">
+        <div>
+          <p class="eyebrow">Color Finder Plus</p>
+          <h1>Colors</h1>
+        </div>
+        <button id="openSettingsBtn" class="tiny" type="button">Settings</button>
+      </section>
+
+      <section class="controls">
+        <button id="pickColorBtn" class="primary">Start Picker</button>
+        <button id="scanBoxBtn" class="secondary">Draw Selection Box</button>
+        <button id="cancelBtn" class="ghost">Cancel Active Mode</button>
+        <button id="clearBtn" class="ghost">Clear Results</button>
+      </section>
+
+      <section id="statusBanner" class="status-banner" hidden></section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>Latest Color</h2>
+          <button id="copyLatestBtn" class="tiny">Copy</button>
+        </div>
+        <div id="latestColor" class="latest-empty">No color picked yet.</div>
+      </section>
+
+      <section id="recentSection" class="card">
+        <div class="section-head">
+          <h2>Recent Picks</h2>
+        </div>
+        <div id="recentPicks" class="swatch-grid empty-state">Pick a few colors to build a quick history.</div>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>Selection Colors</h2>
+          <span id="selectionMeta" class="meta-pill">0 colors</span>
+        </div>
+        <div id="selectionColors" class="swatch-grid empty-state">Use the box tool to extract visible colors from a page region.</div>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>Suggested Palettes</h2>
+        </div>
+        <div id="palettes" class="palette-stack empty-state">Select multiple colors to generate 4, 8, 16, and 32-color palettes.</div>
+      </section>
+    </main>
+
+    <template id="swatchTemplate">
+      <button class="swatch-card" type="button">
+        <span class="swatch-preview"></span>
+        <span class="swatch-hex"></span>
+        <span class="swatch-rgb"></span>
+        <span class="swatch-count"></span>
+      </button>
+    </template>
+
+    <script src="sidepanel.js"></script>
+  </body>
+</html>

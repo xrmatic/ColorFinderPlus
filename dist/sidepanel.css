@@ -1,0 +1,327 @@
+:root {
+  color-scheme: light;
+  --bg: #f3efe6;
+  --ink: #1f2937;
+  --muted: #5b6470;
+  --surface: rgba(255, 255, 255, 0.82);
+  --surface-strong: rgba(255, 255, 255, 0.95);
+  --line: rgba(31, 41, 55, 0.1);
+  --accent: #d97706;
+  --accent-strong: #b45309;
+  --accent-soft: #fff1da;
+  --shadow: 0 10px 26px rgba(68, 52, 20, 0.1);
+  --panel-font-size: 13px;
+  --heading-font-size: 17px;
+  --shell-gap: 10px;
+  --shell-padding: 10px;
+  --card-padding: 10px;
+  --control-padding-y: 9px;
+  --control-padding-x: 10px;
+  --swatch-size: 34px;
+  --swatch-gap: 8px;
+  --section-gap: 8px;
+  --latest-size: 44px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 360px;
+  color: var(--ink);
+  font: var(--panel-font-size)/1.35 "Segoe UI", "Trebuchet MS", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(251, 191, 36, 0.28), transparent 28%),
+    radial-gradient(circle at top right, rgba(14, 165, 233, 0.18), transparent 24%),
+    linear-gradient(180deg, #f9f7f2 0%, var(--bg) 100%);
+}
+
+.app-shell {
+  padding: var(--shell-padding);
+  display: grid;
+  gap: var(--shell-gap);
+}
+
+.hero,
+.panel-header,
+.card {
+  background: var(--surface);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  padding: 12px;
+  background:
+    linear-gradient(135deg, rgba(255, 247, 230, 0.96), rgba(255, 255, 255, 0.9)),
+    var(--surface);
+}
+
+.panel-header {
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.eyebrow {
+  margin: 0 0 3px;
+  color: var(--accent-strong);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.panel-header h1,
+.hero h1,
+.card h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.1;
+}
+
+.panel-header h1 {
+  font-size: calc(var(--heading-font-size) + 2px);
+}
+
+.card h2,
+.hero h1 {
+  font-size: var(--heading-font-size);
+}
+
+.hero-copy {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.status-banner {
+  padding: 9px 11px;
+  border-radius: 12px;
+  background: #fff4e5;
+  color: #9a3412;
+  border: 1px solid rgba(154, 52, 18, 0.14);
+  box-shadow: var(--shadow);
+}
+
+button {
+  border: 0;
+  border-radius: 12px;
+  padding: var(--control-padding-y) var(--control-padding-x);
+  font: inherit;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.primary {
+  background: linear-gradient(135deg, var(--accent), #f59e0b);
+  color: white;
+  box-shadow: 0 12px 24px rgba(217, 119, 6, 0.3);
+}
+
+.secondary {
+  background: linear-gradient(135deg, #0f766e, #14b8a6);
+  color: white;
+  box-shadow: 0 12px 24px rgba(15, 118, 110, 0.26);
+}
+
+.tool-active {
+  position: relative;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.92), 0 0 0 4px rgba(15, 23, 42, 0.2), 0 14px 28px rgba(15, 23, 42, 0.18);
+}
+
+.tool-active::after {
+  content: "On";
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #0f172a;
+  font-size: calc(var(--panel-font-size) - 3px);
+  font-weight: 700;
+}
+
+.ghost,
+.tiny {
+  background: var(--surface-strong);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.tiny {
+  padding: 6px 9px;
+  font-size: calc(var(--panel-font-size) - 1px);
+}
+
+.card {
+  padding: var(--card-padding);
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: var(--section-gap);
+}
+
+.meta-pill {
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: calc(var(--panel-font-size) - 2px);
+  font-weight: 700;
+  padding: 4px 8px;
+}
+
+.latest-empty,
+.empty-state {
+  color: var(--muted);
+}
+
+.latest-color {
+  display: grid;
+  grid-template-columns: var(--latest-size) 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.latest-preview {
+  width: var(--latest-size);
+  height: var(--latest-size);
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.latest-meta {
+  display: grid;
+  gap: 2px;
+}
+
+.latest-meta strong {
+  font-size: calc(var(--heading-font-size) + 1px);
+}
+
+.swatch-grid {
+  display: grid;
+  gap: var(--swatch-gap);
+  max-height: 300px;
+  overflow: auto;
+}
+
+.swatch-card {
+  width: 100%;
+  display: grid;
+  grid-template-columns: var(--swatch-size) 1fr;
+  grid-template-areas:
+    "preview hex"
+    "preview rgb"
+    "preview count";
+  gap: 1px 9px;
+  align-items: center;
+  text-align: left;
+  background: var(--surface-strong);
+  border: 1px solid var(--line);
+  padding: 7px 8px;
+}
+
+.swatch-preview {
+  grid-area: preview;
+  width: var(--swatch-size);
+  height: var(--swatch-size);
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+.swatch-hex {
+  grid-area: hex;
+  font-weight: 700;
+}
+
+.swatch-rgb,
+.swatch-count {
+  color: var(--muted);
+  font-size: calc(var(--panel-font-size) - 1px);
+}
+
+.swatch-rgb {
+  grid-area: rgb;
+}
+
+.swatch-count {
+  grid-area: count;
+}
+
+.palette-stack {
+  display: grid;
+  gap: 10px;
+}
+
+.palette-group {
+  display: grid;
+  gap: 6px;
+}
+
+.palette-label {
+  font-weight: 700;
+}
+
+.palette-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+  gap: 4px;
+}
+
+.palette-chip {
+  aspect-ratio: 1;
+  border-radius: 6px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  min-height: 20px;
+  padding: 0;
+}
+
+body[data-density="comfortable"] {
+  --panel-font-size: 14px;
+  --heading-font-size: 18px;
+  --shell-gap: 14px;
+  --shell-padding: 14px;
+  --card-padding: 14px;
+  --control-padding-y: 11px;
+  --control-padding-x: 12px;
+  --swatch-size: 42px;
+  --swatch-gap: 10px;
+  --section-gap: 10px;
+  --latest-size: 52px;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+@media (max-width: 420px) {
+  .controls {
+    grid-template-columns: 1fr;
+  }
+}
